@@ -56,3 +56,21 @@ npm install -g http-server
 # In Root Directory
 http-server
 ```
+
+## How to Use In Web Browser
+
+1. Open the frontend in your browser (Using http-server).
+2. The graph will be displayed.
+3. Click on the desired nodes to visit to select them (node 0 is the starting point and cannot be deselected).
+4. Click **Submit** to compute the optimal path.
+5. The path will be highlighted on the graph along with the total cost.
+
+## How to Use Only The C Code
+
+```bash
+#From the Root Directory
+cd server
+gcc tsp.c -o tsp_executable
+./tsp_executable
+#And Then Give Your Desired Inputs
+#You Can Access The Example Graph From Graph.txt in the server folder and give the Number of nodes to be visited and the actual nodes that is to be visited as inputs
