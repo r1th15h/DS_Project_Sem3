@@ -29,5 +29,30 @@ A web-based tool to compute and visualize the **Modified Travelling Salesman Pro
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/r1th15h/DS_Project_Sem3.git
+cd DS_Project_Sem3
+```
+2. Install Dependencies
+
+```bash
+npm install
+```
+3. Compile the C program (if not already compiled):
+
+```bash
+cd server
+gcc tsp.c -o tsp_executable
+```
+4. Start The Backend Server
+
+```bash
+cd server
+node server.js
+```
+5. For Frontend
+
+```bash
+npm install -g http-server
+# In Root Directory
+http-server
+```
