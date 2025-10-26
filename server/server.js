@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/run-tsp", (req, res) => {
+
   const { numNodes, labels } = req.body;
 
   try {
@@ -43,6 +44,7 @@ app.post("/run-tsp", (req, res) => {
         if (line.startsWith("Optimal open-path cost:")) {
           cost = parseInt(line.split(":")[1].trim());
         } 
+
         else if (line.startsWith("Order of required nodes visited")) {
           if (i + 1 < lines.length) {
             compressed = lines[i + 1]
@@ -51,6 +53,7 @@ app.post("/run-tsp", (req, res) => {
               .filter((x) => !isNaN(x));
           }
         } 
+
         else if (line.startsWith("Expanded full path")) {
           if (i + 1 < lines.length) {
             expanded = lines[i + 1]
@@ -60,10 +63,10 @@ app.post("/run-tsp", (req, res) => {
           }
         }
       }
-      res.json({cost,compressedOrder: compressed,expandedPath: expanded,});
+      res.json({cost,compressedOrder: compressed,expandedPath: expanded,raw:output});
     });
   } 
-  catch (err) {
+  catch(err){
     console.error("Server error:", err);
     res.status(500).json({ error: "Internal server error" });
   }

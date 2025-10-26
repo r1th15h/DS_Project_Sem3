@@ -41,7 +41,7 @@ npm install
 
 ```bash
 cd server
-gcc tsp.c -o tsp_executable
+make
 ```
 4. Start The Backend Server
 
@@ -50,27 +50,24 @@ cd server
 node server.js
 ```
 5. For Frontend
-
-```bash
-npm install -g http-server
-# In Root Directory
-http-server
-```
+* Start The **index.html** with any live server
+* **Make Sure To Disable Auto Reload Of Live Server To Prevent Refreshing**
 
 ## How to Use In Web Browser
 
-1. Open the frontend in your browser (Using http-server).
+1. Open the frontend in your browser (Using live server).
 2. The graph will be displayed.
 3. Click on the desired nodes to visit to select them (node 0 is the starting point and cannot be deselected).
 4. Click **Submit** to compute the optimal path.
 5. The path will be highlighted on the graph along with the total cost.
+6. The Content Of Output Will Be Displayed Below The Submit Button.
 
 ## How to Use Only The C Code
 
 ```bash
 #From the Root Directory
 cd server
-gcc tsp.c -o tsp_executable
+make
 ./tsp_executable
 #And Then Give Your Desired Inputs
 ```

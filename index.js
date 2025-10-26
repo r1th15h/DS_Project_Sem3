@@ -5,6 +5,7 @@ const rows = 5;
 const cols = 10;
 const spacingX = 100;
 const spacingY = 100;
+const output = document.getElementById("output");
 
 nodes.push({
   id: 0,
@@ -123,14 +124,19 @@ const nodesData = new DataSet(nodes);
 const edgesData = new DataSet(edges);
 
 const network = new Network(container, { nodes: nodesData, edges: edgesData }, {
-  physics: false
+  physics: false,
+  interaction: {
+    zoomView: false,      
+    dragView: true,      
+    dragNodes: false, 
+  }
 });
 
 let selectedNodes = [0];
 let outputNodes = [];
 
 network.on("click", params => {
-  if (params.nodes.length) {
+  if (params.nodes.length){
     const nodeId = params.nodes[0];
 
     if (nodeId === 0) return;
@@ -145,7 +151,9 @@ network.on("click", params => {
           highlight: { border: 'orange', background: 'orange' }
         },
       });
-    } else {
+    } 
+
+    else{
       selectedNodes = selectedNodes.filter(n => n !== nodeId);
       nodesData.update({ 
         id: nodeId, 
@@ -174,7 +182,8 @@ document.getElementById('submitBtn').addEventListener('click', (e) => {
     .then(res => res.json())
     .then(data => {
       outputNodes = data.expandedPath;
-      console.log(outputNodes)
+      const lines = data.raw.split('\n');
+      output.innerHTML = `${lines.map(line => `<li class="lines">${line}</li>`).join('')}`;
       highlightPath(outputNodes);
     }); 
 });
