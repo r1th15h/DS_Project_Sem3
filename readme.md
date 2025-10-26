@@ -73,4 +73,11 @@ cd server
 gcc tsp.c -o tsp_executable
 ./tsp_executable
 #And Then Give Your Desired Inputs
-#You Can Access The Example Graph From Graph.txt in the server folder and give the Number of nodes to be visited and the actual nodes that is to be visited as inputs
+```
+### Input Type For C Code
+
+1. First Line Takes the input of Number of Nodes (n) And Edges (e) present in the graph 
+2. The consecutive 'e' line Take the input of the connecting edges (source destination edgeWeight)
+3. After Complete Graph Data, Enter the number of Nodes to be visted
+4. The next line should contain the input of nodes that is to be visited
+5. **You Can Take The Example Graph From graph.txt in server folder and then continue the input from Step 3**
