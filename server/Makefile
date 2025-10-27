@@ -1,2 +1,2 @@
-tsp_executable: tsp.c
-	gcc tsp.c -o tsp_executable
+tsp_executable: C_Code/tsp.c
+	gcc C_Code/main.c C_Code/heap.c C_Code/tsp.c C_Code/graph.c -o tsp_executable
